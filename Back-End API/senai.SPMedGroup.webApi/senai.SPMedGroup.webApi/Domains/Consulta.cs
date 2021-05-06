@@ -15,6 +15,7 @@ namespace senai.SPMedGroup.webApi.Domains
 
         [Required(ErrorMessage = "Informe o paciente que fará a consulta!")]
         public int? IdPaciente { get; set; }
+
         public int? IdSituacao { get; set; }
 
         [Required(ErrorMessage = "Informe a data da consulta!")]

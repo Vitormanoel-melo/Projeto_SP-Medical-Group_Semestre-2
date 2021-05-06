@@ -18,19 +18,49 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// </summary>
         /// <param name="id">Id da consulta que será atualizada</param>
         /// <param name="consultaAtualizada">Objeto consultaAtualizada com as novas informações</param>
-        public void Atualizar(int id, Consulta consultaAtualizada)
+        public void AtualizarConsulta(int id, Consulta consultaAtualizada)
         {
-            throw new NotImplementedException();
+            Consulta consultaBuscada = BuscarPorId(id);
+
+            if (consultaAtualizada.IdMedico != null && ctx.Medicos.Find(consultaAtualizada.IdMedico) != null)
+            {
+                consultaBuscada.IdMedico = consultaAtualizada.IdMedico;
+            }
+
+            // em andamento...
         }
 
         /// <summary>
-        /// Atualiza o status de uma consulta
+        /// Atualiza o status de uma consulta para 1 - Realizada, 2 - Agendada, 3 - Cancelada
         /// </summary>
         /// <param name="idConsulta">Id da consulta que será atualizada</param>
-        /// <param name="idSituacao">Id da situação que a consulta terá</param>
+        /// <param name="status">Objeto que contém o Id da situação que a consulta terá</param>
         public void AtualizarSituacao(int idConsulta, int idSituacao)
         {
-            throw new NotImplementedException();
+            Consulta consultaBuscada = BuscarPorId(idConsulta);
+
+            switch (idSituacao)
+            {
+                case 1:
+                    consultaBuscada.IdSituacao = 1;
+                    break;
+
+                case 2:
+                    consultaBuscada.IdSituacao = 2;
+                    break;
+
+                case 3:
+                    consultaBuscada.IdSituacao = 3;
+                    break;
+
+                default:
+                    consultaBuscada.IdSituacao = consultaBuscada.IdSituacao;
+                    break;
+            }
+
+            ctx.Consultas.Update(consultaBuscada);
+
+            ctx.SaveChanges();
         }
 
         /// <summary>
@@ -62,6 +92,8 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <param name="novaConsulta">Objeto novaConsulta com as informações</param>
         public void Cadastrar(Consulta novaConsulta)
         {
+            novaConsulta.IdSituacao = 3;
+
             ctx.Consultas.Add(novaConsulta);
 
             ctx.SaveChanges();

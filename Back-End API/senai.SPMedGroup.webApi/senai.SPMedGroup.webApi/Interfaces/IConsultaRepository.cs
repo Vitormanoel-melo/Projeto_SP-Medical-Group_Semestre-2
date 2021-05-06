@@ -32,7 +32,7 @@ namespace senai.SPMedGroup.webApi.Interfaces
         /// </summary>
         /// <param name="id">Id da consulta que será atualizada</param>
         /// <param name="consultaAtualizada">Objeto consultaAtualizada com as novas informações</param>
-        void Atualizar(int id, Consulta consultaAtualizada);
+        void AtualizarConsulta(int id, Consulta consultaAtualizada);
 
         /// <summary>
         /// Deleta uma consulta existente

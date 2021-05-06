@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using senai.SPMedGroup.webApi.Domains;
 using senai.SPMedGroup.webApi.Interfaces;
 using senai.SPMedGroup.webApi.Repositories;
+using senai.SPMedGroup.webApi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -29,6 +30,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as consultas
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de consultas</returns>
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,6 +50,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da consulta que será deletada</param>
         /// <returns>Um status code 200 - Ok e uma consulta encontrada</returns>
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -111,10 +114,77 @@ namespace senai.SPMedGroup.webApi.Controllers
         }
 
         /// <summary>
+        /// Atualiza os dados de uma consulta
+        /// </summary>
+        /// <param name="id">Id da consulta que será atualizada</param>
+        /// <param name="consultaAtualizada">Objeto consulta atualizada com as novas informações</param>
+        /// <returns>Um status code 204 - NoContent</returns>
+        [Authorize(Roles = "1")]
+        [HttpPatch("atualizar/{id}")]
+        public IActionResult Patch(int id, ConsultaViewModel consultaAtualizada)
+        {
+            try
+            {
+                if (_consultaRepository.BuscarPorId(id) != null)
+                {
+                    Consulta consulta = new Consulta
+                    {
+                        IdMedico = consultaAtualizada.IdMedico,
+                        IdPaciente = consultaAtualizada.IdPaciente,
+                        IdSituacao = consultaAtualizada.IdSituacao,
+                        DataConsulta = consultaAtualizada.DataConsulta,
+                        HoraConsulta = consultaAtualizada.HoraConsulta,
+                        Descricao = null
+                    };
+
+                    _consultaRepository.AtualizarConsulta(id, consulta);
+
+                    return StatusCode(204);
+                }
+
+                return NotFound("Consulta não encontrada!");
+            }
+            catch (Exception exception)
+            {
+
+                return BadRequest(exception);
+            }
+        }
+
+        /// <summary>
+        /// Atualiza o status de uma consulta para 1 - Realizada, 2 - Agendada, 3 - Cancelada
+        /// </summary>
+        /// <param name="id">Id da consulta que será atualizada</param>
+        /// <param name="status">Objeto com a informação do status</param>
+        /// <returns>Um status code 204 - NoContent </returns>
+        [Authorize(Roles = "1")]
+        [HttpPatch("atualizar/situacao/{id}")]
+        public IActionResult AtualizarSituacao(int id, ConsultaViewModel status)
+        {
+            try
+            {
+                if (_consultaRepository.BuscarPorId(id) != null)
+                {
+                    _consultaRepository.AtualizarSituacao(id, status.IdSituacao);
+
+                    return StatusCode(204);
+                }
+
+                return NotFound("Consulta não encontrada");
+            }
+            catch (Exception exception)
+            {
+
+                return BadRequest(exception);
+            }
+        }
+
+        /// <summary>
         /// Deleta uma consulta existente
         /// </summary>
         /// <param name="id">Id da consulta que será deletada</param>
         /// <returns>Um status code 204 - No Content</returns>
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
