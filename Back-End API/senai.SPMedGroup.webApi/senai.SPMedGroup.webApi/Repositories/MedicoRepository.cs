@@ -21,9 +21,8 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <param name="medicoAtualizado">Objeto medicoAtualizado com as novas informações</param>
         public void Atualizar(int id, Medico medicoAtualizado)
         {
-            Medico medicoBuscado = BuscarPorId(id);
+            Medico medicoBuscado = ctx.Medicos.FirstOrDefault(m => m.IdMedico == id);
 
-            // Revisar
             if (medicoAtualizado.IdEspecialidade != null && ctx.Especialidades.Find(medicoAtualizado.IdEspecialidade) != null)
             {
                 medicoBuscado.IdEspecialidade = medicoAtualizado.IdEspecialidade;

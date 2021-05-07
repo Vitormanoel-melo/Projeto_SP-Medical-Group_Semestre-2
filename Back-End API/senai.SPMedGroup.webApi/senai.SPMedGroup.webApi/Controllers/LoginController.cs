@@ -27,6 +27,11 @@ namespace senai.SPMedGroup.webApi.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Faz o login do usuário através do e-mail e senha
+        /// </summary>
+        /// <param name="login">Objeto contendo e-mail e senha para login</param>
+        /// <returns>Um status code 200 - OK e um token</returns>
         [HttpPost]
         public IActionResult Logar(LoginViewModel login)
         {

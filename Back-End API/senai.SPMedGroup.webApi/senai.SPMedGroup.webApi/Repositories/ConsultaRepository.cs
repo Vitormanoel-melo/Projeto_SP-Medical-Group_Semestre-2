@@ -20,14 +20,38 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <param name="consultaAtualizada">Objeto consultaAtualizada com as novas informações</param>
         public void AtualizarConsulta(int id, Consulta consultaAtualizada)
         {
-            Consulta consultaBuscada = BuscarPorId(id);
+            Consulta consultaBuscada = ctx.Consultas.FirstOrDefault(c => c.IdConsulta == id);
 
             if (consultaAtualizada.IdMedico != null && ctx.Medicos.Find(consultaAtualizada.IdMedico) != null)
             {
                 consultaBuscada.IdMedico = consultaAtualizada.IdMedico;
             }
 
-            // em andamento...
+            if (consultaAtualizada.IdPaciente != null && ctx.Pacientes.Find(consultaAtualizada.IdPaciente) != null)
+            {
+                consultaBuscada.IdPaciente = consultaAtualizada.IdPaciente;
+            }
+
+            if (consultaAtualizada.IdSituacao != null && ctx.Situacoes.Find(consultaAtualizada.IdSituacao) != null)
+            {
+                consultaBuscada.IdSituacao = consultaAtualizada.IdSituacao;
+            }
+
+            if (consultaAtualizada.DataConsulta != Convert.ToDateTime("0001-01-01"))
+            {
+                consultaBuscada.DataConsulta = consultaAtualizada.DataConsulta;
+            }
+
+            if (consultaAtualizada.HoraConsulta.ToString() != "00:00:00")
+            {
+                consultaBuscada.HoraConsulta = consultaAtualizada.HoraConsulta;
+            }
+
+            consultaBuscada.Descricao = consultaBuscada.Descricao;
+
+            ctx.Consultas.Update(consultaBuscada);
+
+            ctx.SaveChanges();
         }
 
         /// <summary>
@@ -37,7 +61,7 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <param name="status">Objeto que contém o Id da situação que a consulta terá</param>
         public void AtualizarSituacao(int idConsulta, int idSituacao)
         {
-            Consulta consultaBuscada = BuscarPorId(idConsulta);
+            Consulta consultaBuscada = ctx.Consultas.Find(idConsulta);
 
             switch (idSituacao)
             {
@@ -92,7 +116,7 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <param name="novaConsulta">Objeto novaConsulta com as informações</param>
         public void Cadastrar(Consulta novaConsulta)
         {
-            novaConsulta.IdSituacao = 3;
+            novaConsulta.IdSituacao = 2;
 
             ctx.Consultas.Add(novaConsulta);
 
@@ -106,6 +130,25 @@ namespace senai.SPMedGroup.webApi.Repositories
         public void Deletar(int id)
         {
             ctx.Consultas.Remove(BuscarPorId(id));
+
+            ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Insere uma descrição a uma consulta
+        /// </summary>
+        /// <param name="id">Id da consulta</param>
+        /// <param name="descricao">Descricao da consulta</param>
+        public void InserirDescricao(int id, Consulta descricao)
+        {
+            Consulta consultaBuscada = BuscarPorId(id);
+
+            if (descricao.Descricao != null)
+            {
+                consultaBuscada.Descricao = descricao.Descricao;
+            }
+
+            ctx.Consultas.Update(consultaBuscada);
 
             ctx.SaveChanges();
         }
@@ -139,8 +182,6 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <returns>Uma lista de consultas</returns>
         public List<Consulta> ListarMinhas(int id)
         {
-            List<Consulta> ListaConsultas = new List<Consulta>();
-
             Paciente pacienteBuscado = ctx.Pacientes.FirstOrDefault(p => p.IdUsuario == id);
 
             Medico medicoBuscado = ctx.Medicos.FirstOrDefault(m => m.IdUsuario == id); 
@@ -155,7 +196,8 @@ namespace senai.SPMedGroup.webApi.Repositories
                 return ctx.Consultas.Where(c => c.IdMedico == medicoBuscado.IdMedico).ToList();
             }
 
-            return ListaConsultas;
+            return null;
         }
+
     }
 }

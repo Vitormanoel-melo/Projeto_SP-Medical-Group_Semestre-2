@@ -756,7 +756,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU5MzAzLCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.8e9yrMVCLUnewjw1fBroqtpuyGquBmrytkHXW6g27BE",
 									"type": "string"
 								}
 							]
@@ -856,7 +856,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMjQ4NDM3LCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.FzJg9t79qWy8dQfnOuMPhgod0mJ7UucHBcZc0AqDUG4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU5MzAzLCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.8e9yrMVCLUnewjw1fBroqtpuyGquBmrytkHXW6g27BE",
 									"type": "string"
 								}
 							]
@@ -873,7 +873,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/medicos/5",
+							"raw": "http://localhost:5000/api/medicos/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -882,7 +882,7 @@
 							"path": [
 								"api",
 								"medicos",
-								"5"
+								"4"
 							]
 						}
 					},
@@ -1103,6 +1103,16 @@
 				{
 					"name": "Consultas.Listar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU4MTk1LCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.B2Fz9d0FVS5elW8rsQIXqL5-NM-H_Tck5hyfprA4Tsk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1123,10 +1133,20 @@
 				{
 					"name": "Consultas.BuscarPorId",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU4MTk1LCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.B2Fz9d0FVS5elW8rsQIXqL5-NM-H_Tck5hyfprA4Tsk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/consultas/1",
+							"raw": "http://localhost:5000/api/consultas/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1135,7 +1155,7 @@
 							"path": [
 								"api",
 								"consultas",
-								"1"
+								"9"
 							]
 						}
 					},
@@ -1144,6 +1164,16 @@
 				{
 					"name": "Consultas.Cadastrar",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU4MTk1LCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.B2Fz9d0FVS5elW8rsQIXqL5-NM-H_Tck5hyfprA4Tsk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -1217,6 +1247,130 @@
 								"api",
 								"consultas",
 								"minhas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultas.AtualizarConsulta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU4MTk1LCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.B2Fz9d0FVS5elW8rsQIXqL5-NM-H_Tck5hyfprA4Tsk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPaciente\": 8,\r\n    \"idSituacao\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/consultas/atualizar/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consultas",
+								"atualizar",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultas.AtualizarSituacao",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNwbWVkaWNhbGdyb3VwYWRtaW4uY29tLmJyIiwianRpIjoiMTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjIwMzU4MTk1LCJpc3MiOiJTcE1lZC53ZWJBcGkiLCJhdWQiOiJTcE1lZC53ZWJBcGkifQ.B2Fz9d0FVS5elW8rsQIXqL5-NM-H_Tck5hyfprA4Tsk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idSituacao\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/consultas/atualizar/situacao/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consultas",
+								"atualizar",
+								"situacao",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultas.InserirDescricao",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Descrição inserida com sucesso\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/consultas/descricao/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consultas",
+								"descricao",
+								"9"
 							]
 						}
 					},

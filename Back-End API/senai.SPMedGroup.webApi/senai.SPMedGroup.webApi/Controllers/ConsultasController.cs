@@ -127,17 +127,16 @@ namespace senai.SPMedGroup.webApi.Controllers
             {
                 if (_consultaRepository.BuscarPorId(id) != null)
                 {
-                    Consulta consulta = new Consulta
+                    Consulta novaCosulta = new Consulta
                     {
-                        IdMedico = consultaAtualizada.IdMedico,
-                        IdPaciente = consultaAtualizada.IdPaciente,
-                        IdSituacao = consultaAtualizada.IdSituacao,
-                        DataConsulta = consultaAtualizada.DataConsulta,
-                        HoraConsulta = consultaAtualizada.HoraConsulta,
-                        Descricao = null
+                        IdMedico        = consultaAtualizada.IdMedico,
+                        IdPaciente      = consultaAtualizada.IdPaciente,
+                        IdSituacao      = consultaAtualizada.IdSituacao,
+                        DataConsulta    = consultaAtualizada.DataConsulta,
+                        HoraConsulta    = consultaAtualizada.HoraConsulta,
                     };
 
-                    _consultaRepository.AtualizarConsulta(id, consulta);
+                    _consultaRepository.AtualizarConsulta(id, novaCosulta);
 
                     return StatusCode(204);
                 }
@@ -166,6 +165,39 @@ namespace senai.SPMedGroup.webApi.Controllers
                 if (_consultaRepository.BuscarPorId(id) != null)
                 {
                     _consultaRepository.AtualizarSituacao(id, status.IdSituacao);
+
+                    return StatusCode(204);
+                }
+
+                return NotFound("Consulta não encontrada");
+            }
+            catch (Exception exception)
+            {
+
+                return BadRequest(exception);
+            }
+        }
+
+        /// <summary>
+        /// Insere uma descrição a uma consulta
+        /// </summary>
+        /// <param name="id">Id da consulta</param>
+        /// <param name="descricao">Objeto contendo a descricao</param>
+        /// <returns>Um status code 204 - NoContent</returns>
+        [Authorize(Roles = "2")]
+        [HttpPatch("descricao/{id}")]
+        public IActionResult InserirDescricao(int id, ConsultaViewModel descricao)
+        {
+            try
+            {
+                if (_consultaRepository.BuscarPorId(id) != null)
+                {
+                    Consulta descricaoAtualizada = new Consulta
+                    {
+                        Descricao = descricao.Descricao
+                    };
+
+                    _consultaRepository.InserirDescricao(id, descricaoAtualizada);
 
                     return StatusCode(204);
                 }

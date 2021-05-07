@@ -48,6 +48,13 @@ namespace senai.SPMedGroup.webApi.Interfaces
         void AtualizarSituacao(int idConsulta, int idSituacao);
 
         /// <summary>
+        /// Insere uma descrição a uma consulta
+        /// </summary>
+        /// <param name="id">Id da consulta</param>
+        /// <param name="descricao">Descricao da consulta</param>
+        void InserirDescricao(int id, Consulta descricao);
+
+        /// <summary>
         /// Lista consultas de acordo com o id recebido
         /// </summary>
         /// <param name="id">Id de um médico ou paciente para listar as consultas</param>

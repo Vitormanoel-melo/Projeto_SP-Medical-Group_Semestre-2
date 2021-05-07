@@ -8,6 +8,7 @@ using senai.SPMedGroup.webApi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace senai.SPMedGroup.webApi.Controllers
@@ -24,6 +25,13 @@ namespace senai.SPMedGroup.webApi.Controllers
         {
             _pacienteRepository = new PacienteRepository();
         }
+
+        private static ActionResult Result(HttpStatusCode statusCode, string reason) => new ContentResult
+        {
+            StatusCode = (int)statusCode,
+            Content = $"Status Code: {(int)statusCode}; {statusCode}; {reason}",
+            ContentType = "text/plain",
+        };
 
         /// <summary>
         /// Lista todos os pacientes
@@ -88,6 +96,8 @@ namespace senai.SPMedGroup.webApi.Controllers
                 }
 
                 _pacienteRepository.Cadastrar(novoPaciente);
+
+                //return Result(HttpStatusCode.Created, novoPaciente.Cpf);
 
                 return StatusCode(201);
             }

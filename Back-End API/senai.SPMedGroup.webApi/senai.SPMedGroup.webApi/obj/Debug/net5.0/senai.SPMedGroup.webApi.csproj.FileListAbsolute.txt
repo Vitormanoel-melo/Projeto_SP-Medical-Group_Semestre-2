@@ -65,3 +65,5 @@ C:\Users\Vitor Manoel\OneDrive\Área de Trabalho\Projeto_SP-Medical-Group\Back-E
 C:\Users\Vitor Manoel\OneDrive\Área de Trabalho\Projeto_SP-Medical-Group\Back-End API\senai.SPMedGroup.webApi\senai.SPMedGroup.webApi\obj\Debug\net5.0\ref\senai.SPMedGroup.webApi.dll
 C:\Users\Vitor Manoel\OneDrive\Área de Trabalho\Projeto_SP-Medical-Group\Back-End API\senai.SPMedGroup.webApi\senai.SPMedGroup.webApi\obj\Debug\net5.0\senai.SPMedGroup.webApi.pdb
 C:\Users\Vitor Manoel\OneDrive\Área de Trabalho\Projeto_SP-Medical-Group\Back-End API\senai.SPMedGroup.webApi\senai.SPMedGroup.webApi\obj\Debug\net5.0\senai.SPMedGroup.webApi.genruntimeconfig.cache
+C:\Users\Vitor Manoel\OneDrive\Área de Trabalho\Projeto_SP-Medical-Group\Back-End API\senai.SPMedGroup.webApi\senai.SPMedGroup.webApi\bin\Debug\net5.0\senai.SPMedGroup.webApi.xml
+C:\Users\Vitor Manoel\OneDrive\Área de Trabalho\Projeto_SP-Medical-Group\Back-End API\senai.SPMedGroup.webApi\senai.SPMedGroup.webApi\obj\Debug\net5.0\senai.SPMedGroup.webApi.xml
