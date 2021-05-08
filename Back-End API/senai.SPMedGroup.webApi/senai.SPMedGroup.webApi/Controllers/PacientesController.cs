@@ -26,18 +26,11 @@ namespace senai.SPMedGroup.webApi.Controllers
             _pacienteRepository = new PacienteRepository();
         }
 
-        private static ActionResult Result(HttpStatusCode statusCode, string reason) => new ContentResult
-        {
-            StatusCode = (int)statusCode,
-            Content = $"Status Code: {(int)statusCode}; {statusCode}; {reason}",
-            ContentType = "text/plain",
-        };
-
         /// <summary>
         /// Lista todos os pacientes
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de pacientes</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -57,7 +50,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id do paciente que será buscado</param>
         /// <returns>Um status code 200 - Ok com o paciente encontrado</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -77,7 +70,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novoPaciente">Objeto com as novas informações</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(Paciente novoPaciente)
         {
@@ -97,9 +90,7 @@ namespace senai.SPMedGroup.webApi.Controllers
 
                 _pacienteRepository.Cadastrar(novoPaciente);
 
-                //return Result(HttpStatusCode.Created, novoPaciente.Cpf);
-
-                return StatusCode(201);
+                return Created(HttpStatusCode.Created.ToString(), novoPaciente);
             }
             catch (Exception exception)
             {
@@ -114,7 +105,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id do paciente que será atualizado</param>
         /// <param name="pacienteAtualizado">Objeto com as novas informações</param>
         /// <returns>Um status code 204 - No Content</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, PacienteViewModel pacienteAtualizado)
         {
@@ -152,7 +143,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id do paciente que será atualizado</param>
         /// <returns>Um status code 204 - No Content</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

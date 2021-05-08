@@ -103,13 +103,11 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// Cadastra um novo paciente
         /// </summary>
         /// <param name="novoPaciente">Objeto novoPaciente com as informações para cadastro</param>
-        public Paciente Cadastrar(Paciente novoPaciente)
+        public void Cadastrar(Paciente novoPaciente)
         {
             ctx.Pacientes.Add(novoPaciente);
 
             ctx.SaveChanges();
-
-            return novoPaciente;
         }
 
         /// <summary>

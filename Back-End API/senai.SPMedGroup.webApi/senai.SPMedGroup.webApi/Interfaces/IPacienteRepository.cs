@@ -33,7 +33,7 @@ namespace senai.SPMedGroup.webApi.Interfaces
         /// Cadastra um novo paciente
         /// </summary>
         /// <param name="novoPaciente">Objeto novoPaciente com as informações para cadastro</param>
-        Paciente Cadastrar(Paciente novoPaciente);
+        void Cadastrar(Paciente novoPaciente);
 
         /// <summary>
         /// Atualiza um paciente existente

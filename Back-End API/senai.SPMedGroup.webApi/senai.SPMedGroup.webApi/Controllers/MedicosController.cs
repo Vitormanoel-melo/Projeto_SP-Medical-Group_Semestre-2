@@ -29,7 +29,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todos os médicos
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de médicos</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -49,7 +49,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id do médico que será buscado</param>
         /// <returns>Um status code 200 - Ok com um médico encontrado</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -69,7 +69,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novoMedico">Objeto com as informações</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(Medico novoMedico)
         {
@@ -97,7 +97,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id do médico que será atualizado</param>
         /// <param name="medicoAtualizado">Objeto com as novas informações</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPatch("{id}")]
         public IActionResult Put(int id, MedicoViewModel medicoAtualizado)
         {
@@ -146,7 +146,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id do médico que será deletado</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

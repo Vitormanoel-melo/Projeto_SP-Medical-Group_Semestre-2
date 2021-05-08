@@ -384,7 +384,7 @@
             <param name="idConsulta">Id da consulta que será atualizada</param>
             <param name="idSituacao">Id da situação que a consulta terá</param>
         </member>
-        <member name="M:senai.SPMedGroup.webApi.Interfaces.IConsultaRepository.InserirDescricao(System.Int32,senai.SPMedGroup.webApi.Domains.Consulta)">
+        <member name="M:senai.SPMedGroup.webApi.Interfaces.IConsultaRepository.InserirDescricao(System.Int32,senai.SPMedGroup.webApi.Domains.Consulta,System.Int32)">
             <summary>
             Insere uma descrição a uma consulta
             </summary>
@@ -671,7 +671,7 @@
             Atualiza o status de uma consulta para 1 - Realizada, 2 - Agendada, 3 - Cancelada
             </summary>
             <param name="idConsulta">Id da consulta que será atualizada</param>
-            <param name="status">Objeto que contém o Id da situação que a consulta terá</param>
+            <param name="idSituacao">Id da situação que a consulta terá</param>
         </member>
         <member name="M:senai.SPMedGroup.webApi.Repositories.ConsultaRepository.BuscarPorId(System.Int32)">
             <summary>
@@ -692,12 +692,13 @@
             </summary>
             <param name="id">Id da consulta que será deletada</param>
         </member>
-        <member name="M:senai.SPMedGroup.webApi.Repositories.ConsultaRepository.InserirDescricao(System.Int32,senai.SPMedGroup.webApi.Domains.Consulta)">
+        <member name="M:senai.SPMedGroup.webApi.Repositories.ConsultaRepository.InserirDescricao(System.Int32,senai.SPMedGroup.webApi.Domains.Consulta,System.Int32)">
             <summary>
             Insere uma descrição a uma consulta
             </summary>
             <param name="id">Id da consulta</param>
             <param name="descricao">Descricao da consulta</param>
+            <param name="idUsuario">Id de usuário do médico que tentou inserir a descrição</param>
         </member>
         <member name="M:senai.SPMedGroup.webApi.Repositories.ConsultaRepository.Listar">
             <summary>

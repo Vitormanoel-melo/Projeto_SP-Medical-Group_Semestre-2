@@ -114,7 +114,7 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// <returns>Um usuário encontrado</returns>
         public Usuario Logar(string email, string senha)
         {
-            return ctx.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+            return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation).FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
 
     }

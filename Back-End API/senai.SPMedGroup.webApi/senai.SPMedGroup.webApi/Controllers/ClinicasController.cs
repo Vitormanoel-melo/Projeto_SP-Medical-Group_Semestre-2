@@ -29,7 +29,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as clínicas
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de clinicas</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -49,7 +49,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da clinica que será buscada</param>
         /// <returns>Um status code 200 - Ok com a clinica buscada</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -76,7 +76,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novaClinica">Objeto novaClinica com as informações</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(Clinica novaClinica)
         {
@@ -99,7 +99,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id da clínica que será atualizada</param>
         /// <param name="clinicaAtualizada">Objeto com as novas informações</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, ClinicaViewModel clinicaAtualizada)
         {
@@ -139,7 +139,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da clínica que será deletada</param>
         /// <returns>Um status code 204 - No Content</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

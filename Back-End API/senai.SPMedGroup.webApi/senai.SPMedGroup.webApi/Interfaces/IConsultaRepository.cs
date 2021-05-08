@@ -52,7 +52,7 @@ namespace senai.SPMedGroup.webApi.Interfaces
         /// </summary>
         /// <param name="id">Id da consulta</param>
         /// <param name="descricao">Descricao da consulta</param>
-        void InserirDescricao(int id, Consulta descricao);
+        void InserirDescricao(int id, Consulta descricao, int idMedico);
 
         /// <summary>
         /// Lista consultas de acordo com o id recebido

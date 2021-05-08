@@ -84,4 +84,3 @@ GO
 UPDATE pacientes
 SET dataNascimento = '20/01/2000'
 WHERE dataNascimento = NULL;
-

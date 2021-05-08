@@ -28,7 +28,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as situações
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de situações</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,7 +48,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da situação que será buscada</param>
         /// <returns>Um status code 200 - Ok e uma situação encontrada</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -68,7 +68,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novaSituacao">Objeto com as informações</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(Situaco novaSituacao)
         {
@@ -91,7 +91,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id da situação que será atualizada</param>
         /// <param name="situacaoAtualizada">Objeto com as novas informações</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Situaco situacaoAtualizada)
         {
@@ -120,7 +120,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da situação que será deletada</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "1")]
+        [Authorize(Roles = "administrador")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

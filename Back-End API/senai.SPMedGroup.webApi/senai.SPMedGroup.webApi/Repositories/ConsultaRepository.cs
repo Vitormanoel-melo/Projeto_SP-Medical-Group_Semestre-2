@@ -58,7 +58,7 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// Atualiza o status de uma consulta para 1 - Realizada, 2 - Agendada, 3 - Cancelada
         /// </summary>
         /// <param name="idConsulta">Id da consulta que será atualizada</param>
-        /// <param name="status">Objeto que contém o Id da situação que a consulta terá</param>
+        /// <param name="idSituacao">Id da situação que a consulta terá</param>
         public void AtualizarSituacao(int idConsulta, int idSituacao)
         {
             Consulta consultaBuscada = ctx.Consultas.Find(idConsulta);
@@ -139,11 +139,14 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// </summary>
         /// <param name="id">Id da consulta</param>
         /// <param name="descricao">Descricao da consulta</param>
-        public void InserirDescricao(int id, Consulta descricao)
+        /// <param name="idUsuario">Id de usuário do médico que tentou inserir a descrição</param>
+        public void InserirDescricao(int id, Consulta descricao, int idUsuario)
         {
-            Consulta consultaBuscada = BuscarPorId(id);
+            Consulta consultaBuscada = ctx.Consultas.FirstOrDefault(c => c.IdConsulta == id);
 
-            if (descricao.Descricao != null)
+            Medico medicoBuscado = ctx.Medicos.FirstOrDefault(m => m.IdUsuario == idUsuario);
+
+            if (descricao.Descricao != null && consultaBuscada.IdMedico == medicoBuscado.IdMedico)
             {
                 consultaBuscada.Descricao = descricao.Descricao;
             }
