@@ -183,7 +183,7 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// </summary>
         /// <param name="id">Id de um médico ou paciente para listar as consultas</param>
         /// <returns>Uma lista de consultas</returns>
-        public List<Consulta> ListarMinhas(int id)
+        public List<object> ListarMinhas(int id)
         {
             Paciente pacienteBuscado = ctx.Pacientes.FirstOrDefault(p => p.IdUsuario == id);
 
@@ -191,12 +191,102 @@ namespace senai.SPMedGroup.webApi.Repositories
 
             if (pacienteBuscado != null)
             {
-                return ctx.Consultas.Where(p => p.IdPaciente == pacienteBuscado.IdPaciente).ToList();
+                //return ctx.Consultas.Where(p => p.IdPaciente == pacienteBuscado.IdPaciente)
+                    //.Include(m => m.IdMedicoNavigation)
+                    //.Include(m => m.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    //.Select(c => new Consulta
+                    //{
+                    //    IdConsulta = c.IdConsulta,
+                    //    IdPaciente = c.IdPaciente,
+                    //    IdPacienteNavigation = c.IdPacienteNavigation,
+                    //    IdMedico = c.IdMedico,
+                    //    IdMedicoNavigation = c.IdMedicoNavigation,
+                    //    IdSituacaoNavigation = c.IdSituacaoNavigation,
+                    //    DataConsulta = c.DataConsulta,
+                    //    HoraConsulta = c.HoraConsulta,
+                    //    Descricao = c.Descricao
+                    //}).ToList();
+
+                List<Consulta> ListaConsulta = ctx.Consultas.Where(p => p.IdPaciente == pacienteBuscado.IdPaciente)
+                    .Include(m => m.IdMedicoNavigation)
+                    .Include(m => m.IdMedicoNavigation.IdEspecialidadeNavigation)
+                    .Select(c => new Consulta
+                    {
+                        IdConsulta = c.IdConsulta,
+                        IdPaciente = c.IdPaciente,
+                        IdPacienteNavigation = c.IdPacienteNavigation,
+                        IdMedico = c.IdMedico,
+                        IdMedicoNavigation = c.IdMedicoNavigation,
+                        IdSituacaoNavigation = c.IdSituacaoNavigation,
+                        DataConsulta = c.DataConsulta,
+                        HoraConsulta = c.HoraConsulta,
+                        Descricao = c.Descricao
+                    }).ToList();
+
+                List<object> listaConsultasPaciente = new List<object>();
+
+                foreach (var item in ListaConsulta)
+                {
+                    object newItem = new 
+                    { 
+                        idConsulta = item.IdConsulta,
+                        nomePaciente = item.IdPacienteNavigation.Nome,
+                        cpf = item.IdPacienteNavigation.Cpf,
+                        dataNascimento = item.IdPacienteNavigation.DataNascimento,
+                        nomeMedico = item.IdMedicoNavigation.Nome,
+                        especialidade = item.IdMedicoNavigation.IdEspecialidadeNavigation.Descricao,
+                        dataConsulta = item.DataConsulta,
+                        horaConsulta = item.HoraConsulta,
+                        descricao = item.Descricao,
+                        situacao = item.IdSituacaoNavigation.Descricao
+                    };
+
+                    listaConsultasPaciente.Add(newItem);
+                }
+
+                return listaConsultasPaciente;
             }
 
             if (medicoBuscado != null)
             {
-                return ctx.Consultas.Where(c => c.IdMedico == medicoBuscado.IdMedico).ToList();
+                List<Consulta> listaConsultas = ctx.Consultas.Where(c => c.IdMedico == medicoBuscado.IdMedico)
+                            .Include(m => m.IdMedicoNavigation)
+                            .Include(m => m.IdMedicoNavigation.IdEspecialidadeNavigation)
+                            .Select(c => new Consulta
+                            {
+                                IdConsulta = c.IdConsulta,
+                                IdPaciente = c.IdPaciente,
+                                IdPacienteNavigation = c.IdPacienteNavigation,
+                                IdMedico = c.IdMedico,
+                                IdMedicoNavigation = c.IdMedicoNavigation,
+                                IdSituacaoNavigation = c.IdSituacaoNavigation,
+                                DataConsulta = c.DataConsulta,
+                                HoraConsulta = c.HoraConsulta,
+                                Descricao = c.Descricao
+                            }).ToList();
+
+                List<object> listaConsultasMedico = new List<object>();
+
+                foreach (var item in listaConsultas)
+                {
+                    object newItem = new
+                    {
+                        idConsulta = item.IdConsulta,
+                        nomePaciente = item.IdPacienteNavigation.Nome,
+                        dataNascimento = item.IdPacienteNavigation.DataNascimento,
+                        nomeMedico = item.IdMedicoNavigation.Nome,
+                        especialidade = item.IdMedicoNavigation.IdEspecialidadeNavigation.Descricao,
+                        crm = item.IdMedicoNavigation.Crm,
+                        dataConsulta = item.DataConsulta,
+                        horaConsulta = item.HoraConsulta,
+                        descricao = item.Descricao,
+                        situacao = item.IdSituacaoNavigation.Descricao
+                    };
+
+                    listaConsultasMedico.Add(newItem);
+                }
+
+                return listaConsultasMedico;
             }
 
             return null;

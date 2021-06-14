@@ -28,7 +28,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todos os tipos de usuário
         /// </summary>
         /// <returns>Uma lista de tipos de usuário</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,7 +48,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id do tipo de usuário que será buscado</param>
         /// <returns>Um status code 200 - Ok com o tipo de usuário encontrado</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -67,7 +67,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novoTipoUsuario">Objeto novoTipoUsuario com as informações</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(TiposUsuario novoTipoUsuario)
         {
@@ -95,7 +95,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id do tipo de usuário que será atualizado</param>
         /// <param name="tipoAtualizado">Objeto tipoAtualizado com as novas informações</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, TiposUsuario tipoAtualizado)
         {
@@ -129,7 +129,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id do tipo de usuário que será deletado</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

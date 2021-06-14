@@ -52,6 +52,7 @@ namespace senai.SPMedGroup.webApi.Interfaces
         /// </summary>
         /// <param name="id">Id da consulta</param>
         /// <param name="descricao">Descricao da consulta</param>
+        /// <param name="idMedico">id do médico que irá inserir a descrição</param>
         void InserirDescricao(int id, Consulta descricao, int idMedico);
 
         /// <summary>
@@ -59,6 +60,6 @@ namespace senai.SPMedGroup.webApi.Interfaces
         /// </summary>
         /// <param name="id">Id de um médico ou paciente para listar as consultas</param>
         /// <returns>Uma lista de consultas</returns>
-        List<Consulta> ListarMinhas(int id);
+        List<object> ListarMinhas(int id);
     }
 }

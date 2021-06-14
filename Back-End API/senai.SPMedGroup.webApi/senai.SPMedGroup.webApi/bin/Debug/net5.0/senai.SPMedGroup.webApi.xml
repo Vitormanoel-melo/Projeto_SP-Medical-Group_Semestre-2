@@ -337,7 +337,7 @@
             Atualiza uma clínica existente
             </summary>
             <param name="id">Id da clínica que será atualizada</param>
-            <param name="tipoUsuarioAtualizado">Objeto com as novas informações</param>
+            <param name="clinicaAtualizada">Objeto com as novas informações</param>
         </member>
         <member name="M:senai.SPMedGroup.webApi.Interfaces.IClinicaRepository.Deletar(System.Int32)">
             <summary>
@@ -390,6 +390,7 @@
             </summary>
             <param name="id">Id da consulta</param>
             <param name="descricao">Descricao da consulta</param>
+            <param name="idMedico">id do médico que irá inserir a descrição</param>
         </member>
         <member name="M:senai.SPMedGroup.webApi.Interfaces.IConsultaRepository.ListarMinhas(System.Int32)">
             <summary>
@@ -632,7 +633,7 @@
             Atualiza uma clínica existente
             </summary>
             <param name="id">Id da clínica que será atualizada</param>
-            <param name="tipoUsuarioAtualizado">Objeto com as novas informações</param>
+            <param name="clinicaAtualizada">Objeto com as novas informações</param>
         </member>
         <member name="M:senai.SPMedGroup.webApi.Repositories.ClinicaRepository.BuscarPorId(System.Int32)">
             <summary>

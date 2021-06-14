@@ -30,7 +30,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as consultas
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de consultas</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -50,7 +50,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da consulta que será deletada</param>
         /// <returns>Um status code 200 - Ok e uma consulta encontrada</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -69,7 +69,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as consultas de um determinado paciente ou médico que está logado
         /// </summary>
         /// <returns>Uma lista de consultas</returns>
-        [Authorize(Roles = "médico,paciente")] 
+        [Authorize(Roles = "2, 3")] 
         [HttpGet("minhas")]
         public IActionResult GetMy()
         {
@@ -91,7 +91,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novaConsulta">Objeto novaConsulta com as informações para cadastro</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Consulta novaConsulta)
         {
@@ -119,7 +119,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id da consulta que será atualizada</param>
         /// <param name="consultaAtualizada">Objeto consulta atualizada com as novas informações</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPatch("atualizar/{id}")]
         public IActionResult Patch(int id, ConsultaViewModel consultaAtualizada)
         {
@@ -156,7 +156,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id da consulta que será atualizada</param>
         /// <param name="status">Objeto com a informação do status</param>
         /// <returns>Um status code 204 - NoContent </returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPatch("atualizar/situacao/{id}")]
         public IActionResult AtualizarSituacao(int id, ConsultaViewModel status)
         {
@@ -184,7 +184,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id da consulta</param>
         /// <param name="descricao">Objeto contendo a descricao</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "médico")]
+        [Authorize(Roles = "2")]
         [HttpPatch("descricao/{id}")]
         public IActionResult InserirDescricao(int id, ConsultaViewModel descricao)
         {
@@ -218,7 +218,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da consulta que será deletada</param>
         /// <returns>Um status code 204 - No Content</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

@@ -16,7 +16,7 @@ namespace senai.SPMedGroup.webApi.Repositories
         /// Atualiza uma clínica existente
         /// </summary>
         /// <param name="id">Id da clínica que será atualizada</param>
-        /// <param name="tipoUsuarioAtualizado">Objeto com as novas informações</param>
+        /// <param name="clinicaAtualizada">Objeto com as novas informações</param>
         public void Atualizar(int id, Clinica clinicaAtualizada)
         {
             Clinica clinicaBuscada = BuscarPorId(id);

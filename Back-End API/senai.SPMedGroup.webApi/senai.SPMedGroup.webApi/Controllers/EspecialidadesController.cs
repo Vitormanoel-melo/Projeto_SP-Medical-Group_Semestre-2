@@ -29,7 +29,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as especialidades
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de habilidades</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -49,7 +49,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da especialidade que será buscada</param>
         /// <returns>Um status code 200 - Ok e uma especialidade encontrada</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -69,7 +69,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="novaEspecialidade">Objeto novaEspecialidade com as informações</param>
         /// <returns>Um status code 201 - Created</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Especialidade novaEspecialidade)
         {
@@ -92,7 +92,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// <param name="id">Id da habilidade que será atualizada</param>
         /// <param name="especialidadeAtualizada">Objeto especialidadeAtualizada com as novas informações</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Especialidade especialidadeAtualizada)
         {
@@ -119,7 +119,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// </summary>
         /// <param name="id">Id da especialidade que será deletada</param>
         /// <returns>Um status code 204 - NoContent</returns>
-        [Authorize(Roles = "administrador")]
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

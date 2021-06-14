@@ -7539,11 +7539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vitor Manoel\\OneDrive\\Área de Trabalho\\Projeto_SP-Medical-Group\\Back-End API\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi.csproj",
+      "projectUniqueName": "C:\\Users\\Vitor Manoel\\OneDrive\\Área de Trabalho\\2-Termo\\Sprint-2-BackEnd\\Projeto_SP-Medical-Group\\Back-End API\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi.csproj",
       "projectName": "senai.SPMedGroup.webApi",
-      "projectPath": "C:\\Users\\Vitor Manoel\\OneDrive\\Área de Trabalho\\Projeto_SP-Medical-Group\\Back-End API\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi.csproj",
+      "projectPath": "C:\\Users\\Vitor Manoel\\OneDrive\\Área de Trabalho\\2-Termo\\Sprint-2-BackEnd\\Projeto_SP-Medical-Group\\Back-End API\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi.csproj",
       "packagesPath": "C:\\Users\\Vitor Manoel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vitor Manoel\\OneDrive\\Área de Trabalho\\Projeto_SP-Medical-Group\\Back-End API\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi\\obj\\",
+      "outputPath": "C:\\Users\\Vitor Manoel\\OneDrive\\Área de Trabalho\\2-Termo\\Sprint-2-BackEnd\\Projeto_SP-Medical-Group\\Back-End API\\senai.SPMedGroup.webApi\\senai.SPMedGroup.webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vitor Manoel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7621,7 +7621,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
