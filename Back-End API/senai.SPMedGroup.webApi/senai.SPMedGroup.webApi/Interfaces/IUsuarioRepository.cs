@@ -29,6 +29,13 @@ namespace senai.SPMedGroup.webApi.Interfaces
         Usuario BuscarPorEmail(string email);
 
         /// <summary>
+        /// Busca o nome do usuário
+        /// </summary>
+        /// <param name="id">Id do usuário</param>
+        /// <returns>O nome do usuário</returns>
+        string BuscarNomeUsuario(int id);
+
+        /// <summary>
         /// Faz o login do usuário de acordo com o e-mail e senha
         /// </summary>
         /// <param name="email">E-mail do usuário</param>

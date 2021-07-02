@@ -601,6 +601,13 @@
             <param name="email">E-mail do usuário que será buscado</param>
             <returns>U usuário buscado</returns>
         </member>
+        <member name="M:senai.SPMedGroup.webApi.Interfaces.IUsuarioRepository.BuscarNomeUsuario(System.Int32)">
+            <summary>
+            Busca o nome do usuário
+            </summary>
+            <param name="id">Id do usuário</param>
+            <returns>O nome do usuário</returns>
+        </member>
         <member name="M:senai.SPMedGroup.webApi.Interfaces.IUsuarioRepository.Logar(System.String,System.String)">
             <summary>
             Faz o login do usuário de acordo com o e-mail e senha
@@ -848,6 +855,13 @@
             </summary>
             <param name="id">Id do usuário que será atualizado</param>
             <param name="usuarioAtualizado">Objeto usuarioAtualizado com as novas informações</param>
+        </member>
+        <member name="M:senai.SPMedGroup.webApi.Repositories.UsuarioRepository.BuscarNomeUsuario(System.Int32)">
+            <summary>
+            Busca o nome do usuário
+            </summary>
+            <param name="id">Id do usuário</param>
+            <returns>O nome do usuário</returns>
         </member>
         <member name="M:senai.SPMedGroup.webApi.Repositories.UsuarioRepository.BuscarPorEmail(System.String)">
             <summary>

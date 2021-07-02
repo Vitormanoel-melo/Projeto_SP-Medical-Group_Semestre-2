@@ -48,6 +48,31 @@ namespace senai.SPMedGroup.webApi.Repositories
             ctx.SaveChanges();
         }
 
+
+        /// <summary>
+        /// Busca o nome do usuário
+        /// </summary>
+        /// <param name="id">Id do usuário</param>
+        /// <returns>O nome do usuário</returns>
+        public string BuscarNomeUsuario(int id)
+        {
+            Paciente pacienteBuscado = ctx.Pacientes.FirstOrDefault(p => p.IdUsuario == id);
+
+            Medico medicoBuscado = ctx.Medicos.FirstOrDefault(m => m.IdUsuario == id);
+
+            if (pacienteBuscado != null)
+            {
+                return pacienteBuscado.Nome;
+            }
+
+            if(medicoBuscado != null)
+            {
+                return medicoBuscado.Nome;
+            }
+
+            return "Administrador";
+        }
+
         /// <summary>
         /// Busca um usuário através de seu -e-mail
         /// </summary>

@@ -76,7 +76,7 @@ namespace senai.SPMedGroup.webApi
                 options.AddPolicy("CorsPolicy",
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:3000")
+                                      builder.WithOrigins("http://localhost:3000", "http://localhost:19006")
                                                                 .AllowAnyHeader()
                                                                 .AllowAnyMethod();
                                   });
@@ -107,10 +107,10 @@ namespace senai.SPMedGroup.webApi
                 c.RoutePrefix = string.Empty;
             });
 
-            // Habilita autenticação
+            // Habilita autenticaï¿½ï¿½o
             app.UseAuthentication();
 
-            // Habilita autorização
+            // Habilita autorizaï¿½ï¿½o
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

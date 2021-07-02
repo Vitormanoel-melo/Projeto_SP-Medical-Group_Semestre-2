@@ -39,6 +39,9 @@ namespace senai.SPMedGroup.webApi.Controllers
             {
                 Usuario usuarioBuscado = _usuarioRepository.Logar(login.Email, login.Senha);
 
+                Medico medicoBuscado = new Medico();
+                Paciente pacienteBuscado = new Paciente();
+
                 if (usuarioBuscado == null)
                 {
                     return NotFound("E-mail ou senha inválidos!");
@@ -52,7 +55,8 @@ namespace senai.SPMedGroup.webApi.Controllers
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuarioNavigation.IdTipoUsuario.ToString()),
-                    new Claim("role", usuarioBuscado.IdTipoUsuarioNavigation.IdTipoUsuario.ToString())
+                    new Claim("role", usuarioBuscado.IdTipoUsuarioNavigation.IdTipoUsuario.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Name, _usuarioRepository.BuscarNomeUsuario(usuarioBuscado.IdUsuario))
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("spMed-key-autentication"));
