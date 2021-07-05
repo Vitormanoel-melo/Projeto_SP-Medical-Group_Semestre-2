@@ -326,6 +326,12 @@
             <param name="id">Id da clínica que será buscada</param>
             <returns>Um clínica buscada</returns>
         </member>
+        <member name="M:senai.SPMedGroup.webApi.Interfaces.IClinicaRepository.ListarClinicasPublic">
+            <summary>
+            Lista todas as clínicas sem enviar dados sensíveis como CNPJ
+            </summary>
+            <returns>Uma lista de clínicas</returns>
+        </member>
         <member name="M:senai.SPMedGroup.webApi.Interfaces.IClinicaRepository.Cadastrar(senai.SPMedGroup.webApi.Domains.Clinica)">
             <summary>
             Cadastra uma nova clínica
@@ -664,6 +670,12 @@
         <member name="M:senai.SPMedGroup.webApi.Repositories.ClinicaRepository.Listar">
             <summary>
             Lista todas as clinicas
+            </summary>
+            <returns>Uma lista de clínicas</returns>
+        </member>
+        <member name="M:senai.SPMedGroup.webApi.Repositories.ClinicaRepository.ListarClinicasPublic">
+            <summary>
+            Lista todas as clínicas sem enviar dados sensíveis como CNPJ
             </summary>
             <returns>Uma lista de clínicas</returns>
         </member>

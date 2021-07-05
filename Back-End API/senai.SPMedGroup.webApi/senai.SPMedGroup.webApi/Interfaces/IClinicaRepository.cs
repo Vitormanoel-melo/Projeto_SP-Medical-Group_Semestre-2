@@ -22,6 +22,12 @@ namespace senai.SPMedGroup.webApi.Interfaces
         Clinica BuscarPorId(int id);
 
         /// <summary>
+        /// Lista todas as clínicas sem enviar dados sensíveis como CNPJ
+        /// </summary>
+        /// <returns>Uma lista de clínicas</returns>
+        List<Clinica> ListarClinicasPublic();
+
+        /// <summary>
         /// Cadastra uma nova clínica
         /// </summary>
         /// <param name="novaClinica">Objeto novaClinica com as informações para cadastro</param>

@@ -101,5 +101,25 @@ namespace senai.SPMedGroup.webApi.Repositories
         {
             return ctx.Clinicas.ToList();
         }
+
+        /// <summary>
+        /// Lista todas as clínicas sem enviar dados sensíveis como CNPJ
+        /// </summary>
+        /// <returns>Uma lista de clínicas</returns>
+        public List<Clinica> ListarClinicasPublic()
+        {
+            return ctx.Clinicas
+                .Select(c => new Clinica 
+                { 
+                    IdClinica = c.IdClinica,
+                    NomeClinica = c.NomeClinica,
+                    DataAbertura = c.DataAbertura,
+                    HorarioAbertura = c.HorarioAbertura,
+                    HorarioFechamento = c.HorarioFechamento,
+                    Endereco = c.Endereco,
+                    RazaoSocial = c.RazaoSocial
+                })
+                .ToList();
+        }
     }
 }

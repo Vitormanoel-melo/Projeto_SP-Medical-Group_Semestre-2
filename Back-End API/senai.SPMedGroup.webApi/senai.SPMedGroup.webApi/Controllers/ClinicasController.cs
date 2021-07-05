@@ -29,7 +29,7 @@ namespace senai.SPMedGroup.webApi.Controllers
         /// Lista todas as clínicas
         /// </summary>
         /// <returns>Um status code 200 - Ok e uma lista de clinicas</returns>
-        [Authorize]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -68,6 +68,20 @@ namespace senai.SPMedGroup.webApi.Controllers
             {
 
                 return BadRequest(exception);
+            }
+        }
+
+        [HttpGet("todos")]
+        public IActionResult ListarClinicasPublic()
+        {
+            try
+            {
+                return Ok(_clinicaRepository.ListarClinicasPublic());
+            }
+            catch (Exception exception)
+            {
+
+                return BadRequest(new { erro = exception });
             }
         }
 
